@@ -7,7 +7,7 @@ const DEV = process.env.NODE_ENV === "dev"
 if (DEV) {
   const dotenv = require('dotenv')
   dotenv.config({
-    path: path.resolve(__dirname, "../.env")
+    path: path.resolve(__dirname, ".env")
   })
 }
 

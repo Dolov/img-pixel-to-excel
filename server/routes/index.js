@@ -18,6 +18,7 @@ router.post('/upload', async (ctx, next) => {
 
 router.post('/excel', async (ctx, next) => {
   const { body } = ctx.request
+  console.log('body: ', body);
   const res = await invokeLambda(body)
   let resBody = {}
   try {

@@ -3,13 +3,18 @@ const path = require('path')
 const AWS = require('aws-sdk')
 
 const DEV = process.env.NODE_ENV === "dev"
+const dotenv = require('dotenv')
 
-if (DEV) {
-  const dotenv = require('dotenv')
-  dotenv.config({
-    path: path.resolve(__dirname, ".env")
-  })
-}
+// if (DEV) {
+//   const dotenv = require('dotenv')
+//   dotenv.config({
+//     path: path.resolve(__dirname, "./.env")
+//   })
+// }
+
+dotenv.config({
+  path: path.resolve(__dirname, "./.env")
+})
 
 const env = {
   region: process.env.AWS_REGION,
@@ -18,6 +23,7 @@ const env = {
   functionName: process.env.AWS_FUNCTIONNAME,
   secretAccessKey: process.env.AWS_SECRETACCESSKEY,
 }
+
 
 AWS.config.update({
   region: env.region,
